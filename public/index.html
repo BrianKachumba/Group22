@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Manager - Home</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <h2>Event Manager</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="./index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="./add-event.html" ><i class="fas fa-plus"></i> Create Event</a></li>
+                    <li><a href="./view-events.html"><i class="fas fa-list"></i> View Events</a></li>
+                    <li><a href="help.html"><i class="fas fa-question-circle"></i> Help</a></li>
+                    <li><a href="favorites.html"><i class="fas fa-star"></i> Favorites</a></li>
+                    <li><a href="calendar.html"><i class="fas fa-calendar-alt"></i> Calendar View</a></li>
+
+
+                    <div class="event-countdown">
+                        <i class="fas fa-hourglass-half"></i>
+                        <p style="font-size: 12px;">Next Event in: <span id="countdown-timer">3 Days</span></p>
+                    </div>
+                    
+                    
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header -->
+            
+            <header class="header">
+                <div class="hamburger-menu" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search events..." />
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-icons">
+                    <button class="notification-icon">
+                        <i class="fas fa-bell"></i>
+                    </button>
+                    <div class="user-profile">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <button class="toggle-mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </header>
+            
+            
+            
+            
+
+            <!-- Main Section -->
+            <section class="event-overview-section">
+                <h1>Event Overview</h1>
+                <div class="event-highlights">
+                    <div class="highlight-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Upcoming Events</h3>
+                        <p>Keep track of all your upcoming events in one place.</p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-users"></i>
+                        <h3>Organize Effortlessly</h3>
+                        <p>Collaborate with others and organize events with ease.</p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-star"></i>
+                        <h3>Favorites</h3>
+                        <p>Highlight your favorite events for quick access.</p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-bell"></i>
+                        <h3>Event Notifications</h3>
+                        <p>Stay updated with instant notifications about upcoming events and changes.</p>
+                    </div>
+                    
+                </div>
+            </section>
+            
+            
+            
+            <!-- Pop-Up Alert -->
+<div id="alert-popup" class="alert-popup hidden">
+    <p id="alert-message"></p>
+    <button onclick="closeAlert()">OK</button>
+</div>
+        </main>
+    </div>
+</body>
+<script>
+   function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const hamburgerIcon = document.querySelector('.hamburger-menu i');
+
+    // Toggle sidebar visibility
+    sidebar.classList.toggle('active');
+
+    // Change the hamburger menu icon
+    if (sidebar.classList.contains('active')) {
+        hamburgerIcon.classList.remove('fa-bars');
+        hamburgerIcon.classList.add('fa-times');
+    } else {
+        hamburgerIcon.classList.remove('fa-times');
+        hamburgerIcon.classList.add('fa-bars');
+    }
+}
+
+
+</script>
+
+</html>
