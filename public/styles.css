@@ -8,22 +8,28 @@
     --btn-bg-color: #34495e;
     --btn-hover-bg-color: #1abc9c;
     --icon-color: #ecf0f1;
+    --inputs-bg-color: #ecf0f1;
     --notification-bg: #e74c3c;
+    --dark: #19161f;
+    --light: #f3f3f3;
 }
 
 /* Dark mode colors */
-[data-theme="dark"] {
-    --background-color: #121212;
+body.dark {
+    --background-color: #19161f;
     --text-color: #e0e0e0;
     --header-bg-color: #1e1e1e;
     --sidebar-bg-color: #2a2a2a;
     --card-bg-color: #1f1f1f;
     --btn-bg-color: #3a3a3a;
+    --inputs-bg-color: #979292;
     --btn-hover-bg-color: #4caf50;
     --icon-color: #cfd8dc;
     --notification-bg: #ff5252;
 }
 /* General Styles */
+
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -32,7 +38,65 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+   
 }
+body.dark{
+    background-color: var(--dark);
+}
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loader {
+  transform: rotateZ(45deg);
+  perspective: 1000px;
+  border-radius: 50%;
+  width: 98px;
+  height: 88px;
+  color: #333;
+}
+
+.loader:before,
+.loader:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  transform: rotateX(70deg);
+  animation: 1s spin linear infinite;
+}
+
+.loader:after {
+  color: #FF3D00;
+  transform: rotateY(70deg);
+  animation-delay: .4s;
+}
+
+@keyframes spin {
+  0%, 100% { box-shadow: .2em 0px 0 0px currentcolor; }
+  12% { box-shadow: .2em .2em 0 0 currentcolor; }
+  25% { box-shadow: 0 .2em 0 0px currentcolor; }
+  37% { box-shadow: -.2em .2em 0 0 currentcolor; }
+  50% { box-shadow: -.2em 0 0 0 currentcolor; }
+  62% { box-shadow: -.2em -.2em 0 0 currentcolor; }
+  75% { box-shadow: 0px -.2em 0 0 currentcolor; }
+  87% { box-shadow: .2em -.2em 0 0 currentcolor; }
+}
+
 
 /* Header */
 .header {
@@ -104,7 +168,7 @@ body {
 
 .search-bar button {
     padding: 12px 20px;
-    background-color: var(--text-color);
+    background-color: var(--btn-hover-bg-color);
     color: #ecf0f1;
     border: none;
     border-radius: 0 8px 8px 0;
@@ -294,13 +358,13 @@ body {
 .event-overview-section {
     padding: 20px;
     text-align: center;
-    background-color: #f4f4f4;
+    background-color: var(--background-color);
 }
 
 .event-overview-section h1 {
     margin-bottom: 20px;
     font-size: 26px;
-    color: #333;
+    color: var(--text-color);
 }
 
 .event-highlights {
@@ -313,7 +377,7 @@ body {
 .highlight-item {
     flex: 1 1 300px;
     max-width: 300px;
-    background-color: #fff;
+    background-color: var(--card-bg-color);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -335,12 +399,12 @@ body {
 .highlight-item h3 {
     margin: 10px 0;
     font-size: 20px;
-    color: #222;
+    color: var(--text-color);
 }
 
 .highlight-item p {
     font-size: 14px;
-    color: #666;
+    color: var(--text-color);
 }
 
 /*End of Event Overview styles */
@@ -350,7 +414,7 @@ body {
 /* start of event section(event.html) */
 .events-section {
     padding: 2rem;
-    background-color: #f8f9fa;
+    background-color: var(--card-bg-color);
     min-height: calc(100vh - 60px);
 }
 
@@ -363,7 +427,7 @@ body {
 
 .events-header h1 {
     font-size: 2rem;
-    color: #2d3436;
+    color: var(--text-color);
     margin: 0;
 }
 
@@ -412,7 +476,7 @@ body {
 }
 
 .event-card {
-    background: white;
+    background: var(--card-bg-color);
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -433,7 +497,7 @@ body {
 
 .event-card-header h3 {
     margin: 0;
-    color: #2d3436;
+    color: var(--text-color);
     font-size: 1.25rem;
 }
 
@@ -463,7 +527,7 @@ body {
 }
 
 .event-details {
-    color: #636e72;
+    color: var(--text-color);
 }
 
 .event-details p {
@@ -482,8 +546,8 @@ body {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
     background: none;
-    border: 1px solid #2c3e50;
-    color: #2c3e50;
+    border: 1px solid var(--btn-bg-color);
+    color: var(--text-color);
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -593,7 +657,7 @@ body {
 /* add event page(add-event.html */
 .add-event-section {
     padding: 2rem;
-    background-color: #ffffff;
+    background-color: var(--card-bg-color);
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -603,7 +667,7 @@ body {
 
 .add-event-section h1 {
     font-size: 1.8rem;
-    color: #333;
+    color: var(--text-color);
     text-align: center;
     margin-bottom: 2rem;
 }
@@ -622,7 +686,7 @@ body {
 
 .form-group label {
     font-size: 1rem;
-    color: #555;
+    color: var(--text-color);
     font-weight: 500;
 }
 
@@ -633,7 +697,7 @@ body {
     font-size: 1rem;
     border: 1px solid #ddd;
     border-radius: 4px;
-    background-color: #fff;
+    background-color: var(--inputs-bg-color);
     width: 100%;
     transition: border-color 0.3s, box-shadow 0.3s;
 }

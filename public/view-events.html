@@ -10,6 +10,9 @@
     
 </head>
 <body>
+    <div class="loading-screen">
+        <span class="loader"></span>
+    </div>
     <div class="container">
         <!-- Sidebar -->
         <aside class="sidebar">
@@ -24,12 +27,7 @@
                     <li><a href="help.html"><i class="fas fa-question-circle"></i> Help</a></li>
                     <li><a href="favorites.html"><i class="fas fa-star"></i> Favorites</a></li>
                     <li><a href="calendar.html"><i class="fas fa-calendar-alt"></i> Calendar View</a></li>
-
-
-                    <div class="event-countdown">
-                        <i class="fas fa-hourglass-half"></i>
-                        <p style="font-size: 12px;">Next Event in: <span id="countdown-timer">3 Days</span></p>
-                    </div>
+                    <li><a href="archived.html"><i class="fas fa-archive"></i> Archived</a></li>
                     
                     
                 </ul>
@@ -54,8 +52,9 @@
                     <div class="user-profile">
                         <i class="fas fa-user-circle"></i>
                     </div>
-                    <button class="toggle-mode">
+                    <button class="toggle-mode" onclick="toggleLightDark();">
                         <i class="fas fa-moon"></i>
+                        <i class="bi bi-sun-fill"></i></a>
                     </button>
                 </div>
             </header>

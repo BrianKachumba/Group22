@@ -11,6 +11,9 @@
 
 <body>
     
+    <div class="loading-screen">
+        <span class="loader"></span>
+    </div>
     <div class="container">
         <!-- Sidebar -->
         <aside class="sidebar">
@@ -25,12 +28,10 @@
                     <li><a href="help.html"><i class="fas fa-question-circle"></i> Help</a></li>
                     <li><a href="favorites.html"><i class="fas fa-star"></i> Favorites</a></li>
                     <li><a href="calendar.html"><i class="fas fa-calendar-alt"></i> Calendar View</a></li>
+                    <li><a href="archived.html"><i class="fas fa-archive"></i> Archived</a></li>
 
+<!-- Removed the countdown timer section -->
 
-                    <div class="event-countdown">
-                        <i class="fas fa-hourglass-half"></i>
-                        <p style="font-size: 12px;">Next Event in: <span id="countdown-timer">3 Days</span></p>
-                    </div>
                     
                     
                 </ul>
@@ -56,16 +57,13 @@
                     <div class="user-profile">
                         <i class="fas fa-user-circle"></i>
                     </div>
-                    <button class="toggle-mode">
+                    <button class="toggle-mode" onclick="toggleLightDark();">
                         <i class="fas fa-moon"></i>
+                        <i class="bi bi-sun-fill"></i></a>
                     </button>
                 </div>
             </header>
             
-            
-            
-            
-
             <!-- Main Section -->
             <section class="event-overview-section">
                 <h1>Event Overview</h1>
@@ -93,9 +91,7 @@
                     
                 </div>
             </section>
-            
-            
-            
+                       
             <!-- Pop-Up Alert -->
 <div id="alert-popup" class="alert-popup hidden">
     <p id="alert-message"></p>
@@ -104,25 +100,6 @@
         </main>
     </div>
 </body>
-<script>
-   function toggleSidebar() {
-    const sidebar = document.querySelector('.sidebar');
-    const hamburgerIcon = document.querySelector('.hamburger-menu i');
-
-    // Toggle sidebar visibility
-    sidebar.classList.toggle('active');
-
-    // Change the hamburger menu icon
-    if (sidebar.classList.contains('active')) {
-        hamburgerIcon.classList.remove('fa-bars');
-        hamburgerIcon.classList.add('fa-times');
-    } else {
-        hamburgerIcon.classList.remove('fa-times');
-        hamburgerIcon.classList.add('fa-bars');
-    }
-}
-
-
-</script>
+<script src="../main.js"></script>
 
 </html>
