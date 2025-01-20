@@ -70,6 +70,18 @@ app.get('/add-event', (req, res) => {
 app.get('/view-event', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'view-event.html'));
 });
+app.get('/calendar', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'calendar.html'));
+});
+app.get('/help', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'help.html'));
+});
+app.get('/archive', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'archive.html'));
+});
+app.get('/favorites', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'favorites.html'));
+});
 
 // Serve static files
 app.use('/uploads', express.static('uploads'));
@@ -134,6 +146,7 @@ app.get('/api/events', (req, res) => {
         res.json(results);
     });
 });
+
 
 // Get upcoming events (limit 2)
 app.get('/api/events/upcoming', (req, res) => {

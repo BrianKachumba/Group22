@@ -1,55 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Manager - Home</title>
+
+    <!-- External CSS Stylesheets -->
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="./responsive.css">
+
+    <!-- FontAwesome Icons for UI elements -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
-    
+
+    <!-- Loading Screen -->
     <div class="loading-screen">
-        <span class="loader"></span>
+        <span class="loader"></span> <!-- Loader animation -->
     </div>
+
     <div class="container">
-        <!-- Sidebar -->
+
+        <!-- Sidebar Section -->
         <aside class="sidebar">
+            <!-- Sidebar Logo -->
             <div class="sidebar-logo">
-                <h2>Event Manager</h2>
+                <img id="logo" src="./logo.png" alt="Event Manager Logo">
             </div>
+            
+            
+            <!-- Navigation Menu -->
             <nav>
                 <ul>
                     <li><a href="./index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="./add-event.html" ><i class="fas fa-plus"></i> Create Event</a></li>
+                    <li><a href="./add-event.html"><i class="fas fa-plus"></i> Create Event</a></li>
                     <li><a href="./view-events.html"><i class="fas fa-list"></i> View Events</a></li>
-                    <li><a href="help.html"><i class="fas fa-question-circle"></i> Help</a></li>
-                    <li><a href="favorites.html"><i class="fas fa-star"></i> Favorites</a></li>
-                    <li><a href="calendar.html"><i class="fas fa-calendar-alt"></i> Calendar View</a></li>
-                    <li><a href="archived.html"><i class="fas fa-archive"></i> Archived</a></li>
-
-<!-- Removed the countdown timer section -->
-
-                    
-                    
+                    <li><a href="./help.html"><i class="fas fa-question-circle"></i> Help</a></li>
+                    <li><a href="./favorites.html"><i class="fas fa-star"></i> Favorites</a></li>
+                    <li><a href="./calendar.html"><i class="fas fa-calendar-alt"></i> Calendar View</a></li>
+                    <li><a href="./archive.html"><i class="fas fa-archive"></i> Archived</a></li>
                 </ul>
             </nav>
         </aside>
 
-        <!-- Main Content Area -->
+        <!-- Main Content Section -->
         <main class="main-content">
-            <!-- Header -->
-            
+
+            <!-- Header Section -->
             <header class="header">
+                <!-- Hamburger Menu (for smaller screens) -->
                 <div class="hamburger-menu" onclick="toggleSidebar()">
                     <i class="fas fa-bars"></i>
                 </div>
+
+                <!-- Search Bar for event search -->
                 <div class="search-bar">
                     <input type="text" placeholder="Search events..." />
                     <button><i class="fas fa-search"></i></button>
                 </div>
+
+                <!-- Header Icons (Notifications and User Profile) -->
                 <div class="header-icons">
                     <button class="notification-icon">
                         <i class="fas fa-bell"></i>
@@ -57,17 +69,21 @@
                     <div class="user-profile">
                         <i class="fas fa-user-circle"></i>
                     </div>
+                    <!-- Toggle Light/Dark Mode -->
                     <button class="toggle-mode" onclick="toggleLightDark();">
                         <i class="fas fa-moon"></i>
-                        <i class="bi bi-sun-fill"></i></a>
+                        <i class="bi bi-sun-fill"></i>
                     </button>
                 </div>
             </header>
-            
-            <!-- Main Section -->
+
+            <!-- Event Overview Section -->
             <section class="event-overview-section">
                 <h1>Event Overview</h1>
+
+                <!-- Highlighted Features -->
                 <div class="event-highlights">
+                    <!-- Each highlight item has an icon, title, and description -->
                     <div class="highlight-item">
                         <i class="fas fa-calendar-alt"></i>
                         <h3>Upcoming Events</h3>
@@ -88,18 +104,20 @@
                         <h3>Event Notifications</h3>
                         <p>Stay updated with instant notifications about upcoming events and changes.</p>
                     </div>
-                    
                 </div>
             </section>
-                       
-            <!-- Pop-Up Alert -->
-<div id="alert-popup" class="alert-popup hidden">
-    <p id="alert-message"></p>
-    <button onclick="closeAlert()">OK</button>
-</div>
+
+            <!-- Pop-Up Alert (Hidden by default) -->
+            <div id="alert-popup" class="alert-popup hidden">
+                <p id="alert-message"></p>
+                <button onclick="closeAlert()">OK</button>
+            </div>
+
         </main>
     </div>
 </body>
-<script src="../main.js"></script>
+
+<!-- Main JavaScript File -->
+<script src="./main.js"></script>
 
 </html>
