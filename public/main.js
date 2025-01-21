@@ -167,7 +167,7 @@ async function handleSubmit(event) {
         }
 
         // Send event data to backend
-        const response = await fetch('http://localhost:3000/api/events', {
+        const response = await fetch(`/api/events`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -196,7 +196,7 @@ async function uploadImage(file) {
     formData.append('image', file);
 
     try {
-        const response = await fetch('http://localhost:3000/api/upload', {
+        const response = await fetch(`/api/upload`, {
             method: 'POST',
             body: formData
         });
@@ -216,7 +216,7 @@ async function uploadImage(file) {
 // Event viewing functionality
 async function fetchEvents() {
     try {
-        const response = await fetch('http://localhost:3000/api/events');
+        const response = await fetch(`/api/events`);
         if (!response.ok) throw new Error('Failed to fetch events');
         events = await response.json();
         renderEvents();
@@ -492,7 +492,7 @@ function viewEventDetails(eventId) {
 // Delete functionality
 async function deleteEvent(id) {
     try {
-        const response = await fetch(`http://localhost:3000/api/events/${id}`, {
+        const response = await fetch(`/api/events/${id}`, {
             method: 'DELETE'
         });
         if (!response.ok) throw new Error('Failed to delete event');
