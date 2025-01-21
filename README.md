@@ -65,6 +65,8 @@ event-manager/
     └── favorites.html
     └── calendar.html
     └── archive.html
+    └── styles.css
+    └── main.js
 ├── server.js
 ├── event_manager.sql
 ├── package.json
