@@ -77,9 +77,9 @@ Install Dependencies
 
 npm install
 
-## Environment Setup
+# Environment Setup
 
-# Create .env file
+## Create .env file
 
 DB_HOST=localhost
 DB_USER=your_username
