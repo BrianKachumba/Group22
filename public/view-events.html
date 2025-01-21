@@ -24,10 +24,10 @@
                     <li><a href="./index.html"><i class="fas fa-home"></i> Home</a></li>
                     <li><a href="./add-event.html"><i class="fas fa-plus"></i> Create Event</a></li>
                     <li><a href="./view-events.html" class="active"><i class="fas fa-list"></i> View Events</a></li>
-                    <li><a href="help.html"><i class="fas fa-question-circle"></i> Help</a></li>
-                    <li><a href="favorites.html"><i class="fas fa-star"></i> Favorites</a></li>
-                    <li><a href="calendar.html"><i class="fas fa-calendar-alt"></i> Calendar View</a></li>
-                    <li><a href="archived.html"><i class="fas fa-archive"></i> Archived</a></li>
+                    <li><a href="./help.html"><i class="fas fa-question-circle"></i> Help</a></li>
+                    <li><a href="./avorites.html"><i class="fas fa-star"></i> Favorites</a></li>
+                    <li><a href="./calendar.html"><i class="fas fa-calendar-alt"></i> Calendar View</a></li>
+                    <li><a href="./archive.html"><i class="fas fa-archive"></i> Archived</a></li>
                     
                     
                 </ul>
@@ -65,30 +65,24 @@
                     <h1>All Events</h1>
                     <div class="view-controls">
                         <div class="view-toggle">
-                            <button class="active" data-view="grid"><i class="fas fa-th-large"></i></button>
-                            <button data-view="list"><i class="fas fa-list"></i></button>
+                            <button class="grid-view active" data-view="grid">
+                                <i class="fas fa-th-large"></i>
+                            </button>
+                            <button class="list-view" data-view="list">
+                                <i class="fas fa-list"></i>
+                            </button>
                         </div>
                         <select id="sortEvents" class="sort-select">
+                            <option value="title-asc">Title (Z-A)</option>
                             <option value="date-asc">Date (Earliest First)</option>
                             <option value="date-desc">Date (Latest First)</option>
-                            <option value="title-asc">Title (A-Z)</option>
-                            <option value="title-desc">Title (Z-A)</option>
+                            <option value="title-desc">Title (A-Z)</option>
                         </select>
                     </div>
                 </div>
-
+    
                 <div class="event-grid" id="eventContainer">
-                    <!-- Event Card Template -->
-                    <div class="event-card">
-                        <div class="event-card-header">
-                            
-                            </div>
-                        </div>
-                        <div class="event-details">
-                            
-                        </div>
-                    </div>
-                    <!-- More event cards would be dynamically added here -->
+                    <!-- Events will be dynamically inserted here -->
                 </div>
             </section>
 
@@ -120,5 +114,96 @@
     </div>
 
     <script src="./main.js"></script>
+    <script>
+        // fixes
+
+function toggleView(viewType) {
+    currentView = viewType;
+    const eventContainer = document.getElementById('eventContainer');
+    const gridButton = document.querySelector('[data-view="grid"]');
+    const listButton = document.querySelector('[data-view="list"]');
+    
+    if (viewType === 'grid') {
+        eventContainer.className = 'event-grid';
+        gridButton.classList.add('active');
+        listButton.classList.remove('active');
+    } else {
+        eventContainer.className = 'event-list';
+        listButton.classList.add('active');
+        gridButton.classList.remove('active');
+    }
+    
+    // Save preference
+    localStorage.setItem('preferredView', viewType);
+    
+    // Re-render events to apply the new view
+    renderEvents();
+}
+
+// Update the renderEvents function
+function renderEvents(filteredEvents = events) {
+    if (!eventContainer) return;
+    
+    eventContainer.innerHTML = '';
+    const eventsToRender = filteredEvents || events;
+    
+    // Apply the current view class
+    eventContainer.className = currentView === 'grid' ? 'event-grid' : 'event-list';
+
+    eventsToRender.forEach(event => {
+        const eventElement = createEventElement(event);
+        eventContainer.appendChild(eventElement);
+    });
+}
+
+// Update the sort functionality
+if (sortSelect) {
+    sortSelect.addEventListener('change', (e) => {
+        const sortValue = e.target.value;
+        let sortedEvents = [...events];
+
+        switch(sortValue) {
+            case 'date-asc':
+                sortedEvents.sort((a, b) => new Date(a.event_date) - new Date(b.event_date));
+                break;
+            case 'date-desc':
+                sortedEvents.sort((a, b) => new Date(b.event_date) - new Date(a.event_date));
+                break;
+            case 'title-asc':
+                sortedEvents.sort((a, b) => a.title.localeCompare(b.title));
+                break;
+            case 'title-desc':
+                sortedEvents.sort((a, b) => b.title.localeCompare(a.title));
+                break;
+        }
+        
+        renderEvents(sortedEvents);
+    });
+}
+
+// Add this initialization code at the bottom of your file
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize view based on saved preference
+    const savedView = localStorage.getItem('preferredView') || 'grid';
+    currentView = savedView;
+    toggleView(savedView);
+
+    // Initialize view toggle buttons
+    const viewToggleButtons = document.querySelectorAll('.view-toggle button');
+    if (viewToggleButtons) {
+        viewToggleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const viewType = button.getAttribute('data-view');
+                toggleView(viewType);
+            });
+        });
+    }
+
+    // Fetch initial events if we're on the events page
+    if (eventContainer) {
+        fetchEvents();
+    }
+});
+    </script>
 </body>
 </html>
