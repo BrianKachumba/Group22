@@ -77,7 +77,7 @@ Install Dependencies
 
 npm install
 
-Environment Setup
+## Environment Setup
 
 # Create .env file
 
