@@ -65,7 +65,7 @@ node --version
 # MySQL v8.0+ required
 mysql --version
 
-Installation Steps
+##Installation Steps
 
 Clone Repository
 
@@ -77,9 +77,9 @@ Install Dependencies
 
 npm install
 
-Environment Setup
+# Environment Setup
 
-# Create .env file
+## Create .env file
 
 DB_HOST=localhost
 DB_USER=your_username
@@ -137,29 +137,29 @@ Content-Type: application/json
     "category": "party"
 }
 
-Update Event
+## Update Event
 
 PUT /api/events/:id
 
-Delete Event
+## Delete Event
 
 DELETE /api/events/:id
 
-Toggle Favorite
+## Toggle Favorite
 
 PUT /api/events/:id/favorite
 
-Toggle Archive
+## Toggle Archive
 
 PUT /api/events/:id/archive
 
-🌐 Deployment Guide
+## 🌐 Deployment Guide
 
 
-🖼 UI Screenshots
+## 🖼 UI Screenshots
 
 
-📈 Performance Optimizations
+## 📈 Performance Optimizations
 
 Minified assets
 Optimized database queries
@@ -167,7 +167,7 @@ Caching implementation
 Lazy loading images
 Debounced search
 
-👥 Contributing
+## 👥 Contributing
 
 Fork the repository
 Create feature branch (git checkout -b feature/AmazingFeature)
@@ -177,14 +177,14 @@ Open a Pull Request
 
 📄 License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
-🙏 Acknowledgments
+
+## 🙏 Acknowledgments
 
 S-Hook Hackathon organizers
-FontAwesome for icons
-Open source community
+
 
 ## 📞 Support
 
-For any questions or support, please reach out to our team via our plp communication channels or contact us
+### For any questions or support, please reach out to our team via our plp communication channels or contact us
 
 Made with ❤️ by Group 22
