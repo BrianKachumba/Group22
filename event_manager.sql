@@ -1,6 +1,6 @@
 -- create the database 
 
-create database event_mabager;
+create database event_manager;
 
 -- Create the events table
 CREATE TABLE events (
