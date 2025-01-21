@@ -58,16 +58,17 @@ Eventify transforms event management with a modern, intuitive interface designed
 ```
 event-manager/
 ├── public/
-│   ├── css/
-│   │   └── style.css
-│   └── js/
-│       └── script.js
-├── views/
 │   ├── index.html
 │   ├── add-event.html
 │   └── view-event.html
+    └── help.html
+    └── favorites.html
+    └── calendar.html
+    └── archive.html
+    └── styles.css
+    └── main.js
 ├── server.js
-├── db.sql
+├── event_manager.sql
 ├── package.json
 └── README.md
 ```
