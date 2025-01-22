@@ -199,17 +199,17 @@ CREATE INDEX idx_category ON events(category);
 
 ## 👥 Contributing
 
-### Fork the repository.
+### 1.Fork the repository.
 
-### Create a feature branch
+### 2.Create a feature branch
 
 `git checkout -b feature/AmazingFeature`
 
-### Commit changes
+### 3.Commit changes
 
 `git commit -m 'Add AmazingFeature'`
 
-### Push to the branch
+### 4.Push to the branch
 
 `git push origin feature/AmazingFeature`
 
