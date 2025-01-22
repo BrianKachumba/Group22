@@ -917,25 +917,6 @@ body.dark .sidebar-logo img {
     }
 }
 
-
-
-@media (max-width: 768px) {
-    .add-event-section {
-        max-width: 195vh;
-        padding: 15px;
-        width: auto;
-        margin: 0 auto;
-    }
-
-    .event-form {
-        gap: 10px;
-    }
-
-    .btn {
-        width: 100%;
-    }
-}
-
 .help-section {
     padding: 20px;
     background-color: var(--background-color);
