@@ -27,7 +27,7 @@
 - [Test Cases](#test-cases)
 - [Group Members](#group-members)
 - [Acknowledgments](#acknowledgments)
-- [Get in Touch](#Get in Touch)
+- [support](#support)
 
 ## 🌟 Overview
 
